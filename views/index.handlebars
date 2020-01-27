@@ -1,0 +1,60 @@
+
+<div class = "container">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+            <h1 class="animated tada" id="grad1">Let's Eat Burger</h1>
+		</div>
+	</div>
+</div>
+<hr class="my-hr">
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
+            <p>Add some burger to the list.</p>
+			<form action="/burger/create" method="POST">
+				<input type="text" class="form-control form-pre-val" name="burger_name" value="Double Cheese Burger" id="enter_text"><br>
+				<button type="submit" class="btn btn-primary center-block" id="text-enter-button">Submit</button>
+			</form>
+			
+		</div>
+	</div>
+</div>
+
+<hr class="my-hr">
+
+<div class="container">
+    
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="row"><div class="col-md-8 col-sm-8 col-xs-12"><h2>Burgers to Eat</h2></div></div>
+			<div class="row">
+			  {{#each burger_data}}
+			  	{{#unless this.devoured}}
+				<div class="col-md-8 col-sm-8 col-xs-8">
+					<div class="burger-list">{{this.id}}. {{this.burger_name}}
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-4">
+					<form method="POST" action="/burger/update?_method=PUT" class="button-size">
+						<input input type="hidden" type="text" name="burger_id" value={{this.id}}><br>
+						<button type="submit" class="btn btn-special">Eat Me</button>
+					</form>
+				</div>
+				{{/unless}}
+			  {{/each}}
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><h2>Burgers Eaten</h2></div></div>
+			  {{#each burger_data}}
+			  	{{#if this.devoured}}
+				  {{!-- A read-only input field cannot be modified (however, a user can tab to it, highlight it, and copy the text from it). --}}
+			  		<input class="form-control margin-bottom" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+				{{/if}}
+			  {{/each}}
+		</div>
+	</div>
+</div>
+</div>
+

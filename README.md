@@ -25,7 +25,7 @@ In this assignment, you'll create a Burger logger with MySQL, Node, Express, Han
 
 * Whenever a user submits a burger name, your app will display the burger on the left side of the page waiting to be devoured.
 
-* Each burger in the waiting area also has an ~`Devour it!`~ `Eat Me` button. When the user clicks it, the burger cake will move to the right side of the page.
+* Each burger in the waiting area also has an burgers to eat and burgers eaten button. When the user clicks it, the burger cake will move to the right side of the page.
 
 * Your app will store every burger in a database, whether devoured or not.
 
